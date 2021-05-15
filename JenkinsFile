@@ -3,7 +3,7 @@ pipeline {
 	tools {
     	maven 'local-mvn'
 	}
-	//stages {
+	stages {
     	//stage("Checkout") {   
         //	steps { 
         //	    withCredentials([usernamePassword(credentialsId: 'mine', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
@@ -21,7 +21,7 @@ pipeline {
     	stage("Unit test") {          	 
         	steps {  	 
             	sh "mvn test"          	 
-       	}
-}
-}
+       	    }
+        }
+    }
 }
