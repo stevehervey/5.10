@@ -1,0 +1,27 @@
+pipeline {
+	agent any
+	tools {
+    	maven 'local-mvn'
+	}
+	//stages {
+    	//stage("Checkout") {   
+        //	steps { 
+        //	    withCredentials([usernamePassword(credentialsId: 'mine', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        //        git branch: 'main', url: 'https://${USERNAME}:${PASSWORD}@github.com/stevehervey/5.10.git'
+        //    }
+           	 
+        //	}    
+    	//}
+    	stage('Compile') {
+        	steps {
+        	sh "mvn compile"  	 
+        	}
+    	}
+   	 
+    	stage("Unit test") {          	 
+        	steps {  	 
+            	sh "mvn test"          	 
+       	}
+}
+}
+}
